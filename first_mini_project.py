@@ -1,29 +1,37 @@
-print("********    Welcome to Calculator   ********")
-num1=input("enter a number1:")
+replace=""
+flag=False     #flag is used to avoid print
+print("******      WELCOME TO CALCULATOR     ******")
+num1=int(input("Enter the  number1 :"))
 print(num1)
-num2=input("enter a number2:")
+num2=int(input("Enter the number2 :"))
 print(num2)
-print("These are the operators you can use: ")
-print("1.Addition")
-print("2.Subtraction")
-print("3.Multiplication")
-print("4.Division")
-print("5.Modulus")
-operator=input("Please choose an option from these (1,2,3,4,5):")
-if operator=='1':
-    print("This is an Addition operation")
-    print("The sum of the two number is",num1 + num2)
-if operator=='2':
-    print("This is an Subtraction operation")
-    print("The difference of the two number is", num1 - num2)
-if operator=='3':
-    print("This is an Multiplication operation")
-    print("The product of the two number is", num1 * num2)
-if operator == '4':
-    print("This is an Division operation")
-    print("The divident of the two number is", num1 / num2)
-if operator=='5':
-    print("This is an Modulus operation")
-    print("The mod of the two number is", num1 % num2)
-sum=num1+num2
-print()
+print("operator you can use:")
+print("1.addition")
+print("2.subtraction")
+print("3.multiplication")
+print("4.division")
+print("5.modulus")
+result=0
+operator=input("choose an option from these (1,2,3,4,5):")
+if operator=="1":
+    replace1="Addition"
+    result=num1+num2
+if operator=="2":
+    if num1<num2:
+        flag=False
+        print("cannot subtract the First number is less than the Second number")
+    else:
+        flag=True
+        replace1="Subtraction"
+        result=num1-num2
+if operator=="3":
+    replace1="Multiplication"
+    result=num1*num2
+if operator=="4":
+    replace1="Division"
+    result=num1//num2
+if operator=="5":
+    replace1="Modulus"
+    result=num1%num2
+if flag==True:
+   print("The result of",replace1,"of",num1,"and",num2,"is",result)
